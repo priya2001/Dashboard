@@ -230,7 +230,14 @@ export default function App() {
               <span className="dot" style={{ background: 'var(--accent4)' }} />
               WELL COUNT TIMELINE
             </div>
-            <div className="chart-sub">Top operators by well count. Click any row to filter by operator group.</div>
+            <div className="timeline-header">
+              <div className="chart-sub">Top operators by well count. Click any row to filter by operator group.</div>
+              {selectedTimeline ? (
+                <button type="button" className="timeline-back-btn" onClick={() => setSelectedTimeline(null)}>
+                  Back to All
+                </button>
+              ) : null}
+            </div>
             <div className="timeline-bar timeline-rows" id="timelineBar">
               {timelineData.sorted.map(([operator, count], index) => (
                 <button
